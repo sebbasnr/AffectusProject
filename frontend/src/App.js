@@ -21,7 +21,8 @@ function App() {
     setSentiment('');
 
     try {
-      const response = await axios.post('/api/analyze', { comment });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/analyze`, { comment });
+
       setSentiment(response.data.sentiment);
     } catch (err) {
       console.error(err);
